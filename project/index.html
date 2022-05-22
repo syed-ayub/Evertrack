@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="/index.js"></script>
+
+    <title>Dapp</title>
+</head>
+
+<body>
+    <button id="connectButton" onclick="connectMetaMask()">Connect</button>
+    <br>
+    <br>
+    <div>
+    <p>Grant Roles</p>
+    
+    <form id="GrantRoles" onsubmit="return false" >
+        <input type="text" id="Role" name="Rolesn" placeholder="role">
+        <input type="text" id="addressTo" name="addressTon" placeholder="metamask address">
+        <input type="submit" onclick="callContract()" >
+        
+    </form>
+</div>
+<div>
+    <p>Create new car</p>
+
+    <form id="createAssets" onsubmit="return false">
+        <input type="text" id="name" name="namen" placeholder="Model">
+        <input type="text" id="description" name="description" placeholder="Reports">
+        <input type="text" id="uuid" name="uuid" placeholder="uuid">
+        <input type="text" id="manufacturer" name="manufacturer" placeholder="manufacturer">
+        <input type="text" id="engineId" name="engineId" placeholder="engineId">
+        <input type="text" id="batteryId" name="batteryId" placeholder="batteryId">
+        <input type="text" id="ownerAcc" name="ownerAcc" placeholder="metamask address">
+        <input type="text" id="status" name="status" placeholder="status">
+        
+        <input type="submit" onclick="manufact()">
+
+    </form>
+</div>
+
+
+<div>
+    <p>Change car status</p>
+
+    <form id="ChangeAssetStatus" onsubmit="return false">
+        <input type="text" id="uuid2" name="uuid2" placeholder="uuid">
+        <input type="text" id="_status" name="_status" placeholder="Enter status">
+        <input type="submit" onclick="statusChange()">
+
+    </form>
+</div>
+    
+<div>
+    <p>Give car Reports</p>
+
+    <form id="ChangeAssetStatus" onsubmit="return false">
+        <input type="text" id="uuid3" name="uuid3" placeholder="uuid">
+        <input type="text" id="_report" name="_report" placeholder="Enter Report">
+        <input type="submit" onclick="ReportChange()">
+
+    </form>
+</div>
+
+<div>
+    <p>Transfer Ownership</p>
+
+    <form id="transferAsset" onsubmit="return false">
+        <input type="text" id="buyer" name="buyer" placeholder="Buyer">
+        <input type="text" id="uuid4" name="uuid4" placeholder="uuid">
+        <input type="submit" onclick="ownerChange()">
+
+    </form>
+</div>
+<div>
+    <p>Verify Part</p>
+    <form id="parts" onsubmit="return false">
+        <input type="text" id="partId" name="partId" placeholder="Part ID">
+ <input type="submit" onclick="partDetails()">
+    </form>
+    <p id="partsdetails"></p>
+    
+</div>
+<div>
+    <p>Search with UUID</p>
+    <form id="SUuid" onsubmit="return false">
+        <input type="text" id="sUUID" name="sUUID" placeholder="UUID">
+        <input type="submit" onclick="fetchCar()">
+    </form>
+    <p id="cardetails"></p>
+
+</div>
+    <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="application/javascript">
+    </script>
+
+</body>
+
+</html
