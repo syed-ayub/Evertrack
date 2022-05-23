@@ -6,95 +6,397 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="/index.js"></script>
-
-    <title>Dapp</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" type="image" href="assets/images/fav.svg">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <title>EverTrack</title>
 </head>
 
 <body>
-    <button id="connectButton" onclick="connectMetaMask()">Connect</button>
-    <br>
-    <br>
-    <div>
-    <p>Grant Roles</p>
+	<link rel="shortcut icon" href="assets/images/gt_favicon.png">
+	
+	<link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="assets/css/bootstrap-theme.css" media="screen" >
+	<link rel="stylesheet" href="assets/css/main.css">
+
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+	<script src="assets/js/html5shiv.js"></script>
+	<script src="assets/js/respond.min.js"></script>
+	<![endif]-->
+	
+</head>
+
+<body class="home">
+	<!-- Fixed navbar -->
+	<div class="navbar navbar-inverse navbar-fixed-top headroom" >
+		<div class="container">
+			<div class="navbar-header">
+				<!-- Button for smallest screens -->
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+				<a class="navbar-brand" href="index.html"><img src="assets/images/evertracklogo2.png" alt="evertrack logo" class="etlogo"></a>
+			</div>
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav pull-right">
+					<li class="active"><a href="#">Home</a></li>
+					<li><a href="about.html">About</a></li>
+					<li><a href="contact.html">Contact</a></li>
+				</ul>
+			</div><!--/.nav-collapse -->
+		</div>
+	</div> 
+	<!-- /.navbar -->
+
+	<!-- Header -->
+	<header id="head">
+		<div class="container">
+			<div class="row">
+				<h1 class="lead">Check what we can accomplish right away with the data received from our partners</h1>
+				<p class="tagline">Evertrack: Everything you need in one place </p>
+			</div>
+		</div>
+	</header>
+	<!-- /Header -->
     
-    <form id="GrantRoles" onsubmit="return false" >
-        <input type="text" id="Role" name="Rolesn" placeholder="role">
-        <input type="text" id="addressTo" name="addressTon" placeholder="metamask address">
-        <input type="submit" onclick="callContract()" >
-        
-    </form>
+
+
+
+
+    <!--FIELDS-->
+	<section style="background-color: black; background-image: url(assets/images/bgm.jpg); background-size: contain; color: rgb(255, 255, 255); background-repeat: no-repeat;">
+    <center>
+    <br>
+    <br>
+    <button class="button" id="connectButton" onclick="connectMetaMask()"><span>Connect MetaMask 🦊</span></button>
+    <br>
+    <br> 
+	<div class="gradbox" onclick="connectMetaMask()"> 
+		<br>
+		<i class="fab fa-ethereum" style="font-size: 46px"></i>
+		<br>
+		<p class="address1" style="font-size: 15px">     Address:</p>
+		<p class="address2">0x3F74c594596bB73661d6121b883666407d235056</p> 
+		<br>
+	</div>
+
+		<br>
+		<br>
+        <details class="details-example">
+            <summary><h1 class="grow">Search with UUID</h1></summary>
+        <form id="SUuid" onsubmit="return false">
+            <input style="width: 510px; height: 40px;" type="text" id="sUUID" name="sUUID" placeholder="  UUID "> <br>
+            <br>
+            <button class="button" onclick="fetchCar()"><span>Submit</span> </button>
+        </form>
+		<br>
+        <p style=" font-size: large; font-family: Verdana, Geneva, Tahoma, sans-serif; " id="cardetails" ></p>
+        <br>
+        </details>
+	</div>
+    <div>
+        <details class="details-example">
+            <summary><h1 class="grow">Verify Part</h1></summary>
+        <form id="parts" onsubmit="return false">
+
+            <input style="width: 510px; height: 40px;" type="text" id="partId" name="partId" placeholder="  Part ID "> <br>
+            <br>
+            <button class="button" onclick="partDetails()"><span>Submit</span></button>
+        </form>
+        <p id="partsdetails"> </p>  
+    
+        <br>
+    <br>
+    </details>
+    </div>
+
+
+    <div>
+        <details class="details-example">
+            <summary><h1 class="grow">Grant Roles</h1></summary>
+            
+            <form id="GrantRoles" onsubmit="return false" >
+                <input style="width: 510px; height: 40px;" type="text" id="Role" name="Rolesn" placeholder="  Role "> <br> <br>
+                <input style="width: 510px; height: 40px;" type="text" id="addressTo" name="addressTon" placeholder="  Metamask address "> 
+                <br>
+                <br>
+                <button class="button" onclick="callContract()" > <span>Submit</span></button>
+                
+            </form>
+        </details>
+    
+    
+    
 </div>
 <div>
-    <p>Create new car</p>
+    <details class="details-example">
+        <summary><h1 class="grow">Create new car</h1></summary>
 
     <form id="createAssets" onsubmit="return false">
-        <input type="text" id="name" name="namen" placeholder="Model">
-        <input type="text" id="description" name="description" placeholder="Reports">
-        <input type="text" id="uuid" name="uuid" placeholder="uuid">
-        <input type="text" id="manufacturer" name="manufacturer" placeholder="manufacturer">
-        <input type="text" id="engineId" name="engineId" placeholder="engineId">
-        <input type="text" id="batteryId" name="batteryId" placeholder="batteryId">
-        <input type="text" id="ownerAcc" name="ownerAcc" placeholder="metamask address">
-        <input type="text" id="status" name="status" placeholder="status">
+        <input style="width: 510px; height: 40px;" type="text" id="name" name="namen" placeholder="  Model"> <br> <br>
+        <input style="width: 510px; height: 40px;" type="text" id="description" name="description" placeholder="  Reports"> <br> <br>
+        <input style="width: 510px; height: 40px;" type="text" id="uuid" name="uuid" placeholder="  UUID"> <br> <br>
+        <input style="width: 510px; height: 40px;" type="text" id="manufacturer" name="manufacturer" placeholder="  Manufacturer"> <br> <br>
+        <input style="width: 510px; height: 40px;" type="text" id="engineId" name="engineId" placeholder="  EngineId"> <br> <br>
+        <input style="width: 510px; height: 40px;" type="text" id="batteryId" name="batteryId" placeholder="  BatteryId"> <br> <br>
+        <input style="width: 510px; height: 40px;" type="text" id="ownerAcc" name="ownerAcc" placeholder="  Metamask address"> <br> <br>
+        <input style="width: 510px; height: 40px;" type="text" id="status" name="status" placeholder="  Status"> <br><br>
         
-        <input type="submit" onclick="manufact()">
+        <button class="button" onclick="manufact()"><span>Submit</span></button>
 
     </form>
+    </details>
 </div>
 
 
 <div>
-    <p>Change car status</p>
+    <details class="details-example">
+        <summary><h1 class="grow">Change car status</h1></summary>
 
     <form id="ChangeAssetStatus" onsubmit="return false">
-        <input type="text" id="uuid2" name="uuid2" placeholder="uuid">
-        <input type="text" id="_status" name="_status" placeholder="Enter status">
-        <input type="submit" onclick="statusChange()">
+        <input style="width: 510px; height: 40px;" type="text" id="uuid2" name="uuid2" placeholder="  UUID"> <br> <br>
+        <input style="width: 510px; height: 40px;" type="text" id="_status" name="_status" placeholder="  Enter status"> <br><br>
+        <button class="button" onclick="statusChange()"><span>Submit</span></button>
 
     </form>
+    
+    </details>
 </div>
+
     
 <div>
-    <p>Give car Reports</p>
+    <details class="details-example">
+        <summary><h1 class="grow">Give car Reports</h1></summary>
+
 
     <form id="ChangeAssetStatus" onsubmit="return false">
-        <input type="text" id="uuid3" name="uuid3" placeholder="uuid">
-        <input type="text" id="_report" name="_report" placeholder="Enter Report">
-        <input type="submit" onclick="ReportChange()">
+        <input style="width: 510px; height: 40px;" type="text" id="uuid3" name="uuid3" placeholder="  UUID"> <br> <br>
+        <input style="width: 510px; height: 40px;" type="text" id="_report" name="_report" placeholder="  Enter Report"> <br><br>
+        <button class="button" onclick="ReportChange()"><span>Submit</span></button>
 
     </form>
+    </details>
 </div>
 
 <div>
-    <p>Transfer Ownership</p>
+    <details class="details-example">
+        <summary><h1 class="grow">Transfer Ownership</h1></summary>
+
 
     <form id="transferAsset" onsubmit="return false">
-        <input type="text" id="buyer" name="buyer" placeholder="Buyer">
-        <input type="text" id="uuid4" name="uuid4" placeholder="uuid">
-        <input type="submit" onclick="ownerChange()">
+        <input style="width: 510px; height: 40px;" type="text" id="buyer" name="buyer" placeholder="  Buyer"> <br> <br>
+        <input style="width: 510px; height: 40px;" type="text" id="uuid4" name="uuid4" placeholder=" UUID"> <br><br>
+        <button class="button" onclick="ownerChange()"><span>Submit</span></button>
 
     </form>
+    </details>
 </div>
-<div>
-    <p>Verify Part</p>
-    <form id="parts" onsubmit="return false">
-        <input type="text" id="partId" name="partId" placeholder="Part ID">
- <input type="submit" onclick="partDetails()">
-    </form>
-    <p id="partsdetails"></p>
-    
-</div>
-<div>
-    <p>Search with UUID</p>
-    <form id="SUuid" onsubmit="return false">
-        <input type="text" id="sUUID" name="sUUID" placeholder="UUID">
-        <input type="submit" onclick="fetchCar()">
-    </form>
-    <p id="cardetails"></p>
+<br>
+<br>
+<br>
 
-</div>
+
     <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="application/javascript">
     </script>
+</center>
+</section>
+<!--/Fields-->
+
+
+
+	<!-- Intro -->
+	<div class="container text-center">
+		<br> <br>
+		<h1 class="thin">Why Evertrack?</h1>
+		<br>
+		<img src="assets/images/pick1.png">
+		<p class="text-muted" style="text-align: center;">
+			Nowadays it’s extremely easy for a dishonest person to modify information for their own benefit, and your loss. Information is not verified by providers and is usually out of date. When you’re buying a car, one of the biggest purchases in your entire life, it’s vital to be sure that it’s worth the money you’re paying and that it’s absolutely safe for you to drive. If you’re not buying what you agreed to, you could potentially be risking your hard-earned investment or even your safety. <br>
+Due to these factors, we have created a system that will solve all current problems with vehicle history. EverTrack is creating a worldwide blockchain registry of used vehicle information that is 100% transparent, reliable and accessible by all. The blockchain will guarantee that vehicle data has not been falsified, changed or deleted.
+<br> Click <a href="about.html" style="color: orange;">Here</a> to know more.
+		</p>
+		<br>
+		
+	</div>
+	<!-- /Intro-->
+		
+	<!-- Highlights - jumbotron -->
+	<div class="jumbotron top-space">
+		<div class="container">
+			
+			<h3 class="text-center thin">Reasons to use EverTrack</h3>
+			
+			<div class="row">
+				<div class="col-md-3 col-sm-6 highlight">
+					<div class="h-caption"><h4><i class="fa fa-cogs fa-5"></i>Blockchain-powered</h4></div>
+					<div class="h-body text-center">
+						<p>Blockchain makes the history of any digital asset
+						unalterable and transparent through the use of decentralization and cryptographic hashing.</p>
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-6 highlight">
+					<div class="h-caption"><h4><i class="fa fa-flash fa-5"></i>Fast Deployment</h4></div>
+					<div class="h-body text-center">
+						<p>Evertrack being an
+						Fully managed platform requires no set up and hence can be deployed instantaniously.  </p>
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-6 highlight">
+					<div class="h-caption"><h4><i class="fa fa-heart fa-5"></i>Fraud-proof</h4></div>
+					<div class="h-body text-center">
+						<p>Blockchain makes the history of any digital asset
+						unalterable and transparent through the use of decentralization and cryptographic hashing.</p>
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-6 highlight">
+					<div class="h-caption"><h4><i class="fa fa-smile-o fa-5"></i>Great experience</h4></div>
+					<div class="h-body text-center">
+						<p>Uses a simple interface with
+						Engaging features that is easy to use for everyone.<br>
+						 Provides Support 24/7 </p>
+					</div>
+				</div>
+			</div> <!-- /row  -->
+		
+		</div>
+	</div>
+	<!-- /Highlights -->
+
+	<!-- container -->
+	<div class="container">
+
+		<h2 class="text-center top-space" style="color: orange; ;"><strong>Frequently Asked Questions</strong></h2>
+		<br>
+
+		<div class="row">
+			<div class="col-sm-6">
+				<h3>What makes Evertrack Trustable?</h3>
+				<p>The use of Blockchain Technology in Evertrack makes it a trustable platform for used car dealings.Blockchain gives our
+				system the Security, Immutability and Transparency it need.</p>
+			</div>
+			<div class="col-sm-6">
+				<h3>How can I know whether a car is second handed or third handed?</h3>
+				<p>
+					When the ownership of the car moves from one customer to another,the history record will be updated and moves to the new
+					owner.</a></p>
+			</div>
+		</div> <!-- /row -->
+
+		<div class="row">
+			<div class="col-sm-6">
+				<h3>How can I know whether the car I'm about to buy is stolen or not inorder to avoid future troubles?</h3>
+				<p>
+					Evertrack prevents the selling of stolen cars by blacklisting it in the system through a request sent by the owner.
+				</p>
+			</div>
+			<div class="col-sm-6">
+				<h3>Who enters all the details we see about a car in this system?</h3>
+				<p>The Manufacturers,Insurance companies,Mechanics, Department of Moter Vehicles act as the service provider in our system.</p>
+			</div>
+		</div> <!-- /row -->
+		<div class="jumbotron top-space">
+			<h4>Blockchain technology has great potential to change the way specific industries
+			operate by eliminating middleware layers between seller and buyer.The used vehicle market is one of the most important
+			economic sectors, which suffers from severe frauds and the absence of integrity measures since multi-variant
+			stakeholders are involved in the vehicle trade. Therefore, blockchain offers a solution to track and log
+			vehicle data and maintain a high level of trust, data integrity, and traceability.</h4>
+     		<p class="text-right"><a href="https://www.investopedia.com/terms/b/blockchain.asp" target="_blank" class="btn btn-primary btn-large">Learn more »</a></p>
+  		</div>
+
+</div>	<!-- /container -->
+	
+	<!-- Social links -->
+	<section id="social">
+		<div class="container">
+			<div class="wrapper clearfix">
+				<!-- AddThis Button BEGIN -->
+				<div class="addthis_toolbox addthis_default_style">
+				<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+				<a class="addthis_button_tweet"></a>
+				<a class="addthis_button_linkedin_counter"></a>
+				<a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+				</div>
+				<!-- AddThis Button END -->
+			</div>
+		</div>
+	</section>
+	<!-- /social links -->
+
+
+	<footer id="footer" class="top-space">
+
+		<div class="footer1">
+			<div class="container">
+				<div class="row">
+					
+					<div class="col-md-3 widget">
+						<h3 class="widget-title">Contact info</h3>
+						<div class="widget-body">
+							<p>1-202-456-1414<br>
+								<a href="mailto:#">evertrack@yahoo.com</a><br>
+								<br>
+								234 Hidden Leaf, Konoha,Wakanda.
+							</p>	
+						</div>
+					</div>
+
+					<div class="col-md-3 widget">
+						<h3 class="widget-title">Follow us</h3>
+						<div class="widget-body">
+							<p class="follow-me-icons">
+								<a href=""><i class="fa fa-twitter fa-2"></i></a>
+								
+								<a href=""><i class="fa fa-facebook fa-2"></i></a>
+							</p>	
+						</div>
+					</div>
+
+				</div> <!-- /row of widgets -->
+			</div>
+		</div>
+
+		<div class="footer2">
+			<div class="container">
+				<div class="row">
+					
+					<div class="col-md-6 widget">
+						<div class="widget-body">
+							<p class="simplenav">
+								<a href="#">Home</a> | 
+								<a href="about.html">About</a> |
+								<a href="sidebar-right.html">Sidebar</a> |
+								<a href="contact.html">Contact</a> |
+								<b><a href="signup.html">Sign up</a></b>
+							</p>
+						</div>
+					</div>
+
+					<div class="col-md-6 widget">
+						<div class="widget-body">
+							<p class="text-right">
+								Copyright &copy; 2021, Evertrack.
+							</p>
+						</div>
+					</div>
+
+				</div> <!-- /row of widgets -->
+			</div>
+		</div>
+
+	</footer>	
+		
+
+
+
+
+	<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+	<script src="assets/js/headroom.min.js"></script>
+	<script src="assets/js/jQuery.headroom.min.js"></script>
+	<script src="assets/js/template.js"></script>
 
 </body>
 

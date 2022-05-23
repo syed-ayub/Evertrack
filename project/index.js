@@ -616,5 +616,6 @@ async function callContract() {
                 const counter = await keepersContract.getAssetByUUID(a);
                 console.log(counter);
                 var carDisp=document.getElementById("cardetails");
-                carDisp.innerHTML="Model is "+counter[0]+" , General reports of car is "+counter[1]+" , The company Manufactuer is "+counter[2]+" , The EngineID is "+counter[3]+" , The BatteryID is "+counter[4]+" , The Status of the car is "+counter[5]+" , The Owner address is "+counter[6];
+                carDisp.innerHTML="Model is "+counter[0]+"<br> General reports of car is "+counter[1]+"<br> company Manufactuer is "+counter[2]+"<br> The EngineID is "+counter[3]+"<br> The BatteryID is "+counter[4]+"<br> The Status of the car is "+counter[5]+"<br> The Owner address is "+counter[6];
             } 
+			
