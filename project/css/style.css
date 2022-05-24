@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+
+*{
+    margin: 0%;
+    padding: 0%;
+    font-family: 'Roboto', sans-serif;
+}
+body {
+    width: 100%;
+    height: auto;
+    background-color: #000000;
+    color: white;
+}
+
+.container{
+    position: relative;
+}
+.aboutme {
+    top: 20%;
+    left: 55%;
+    font-size: 6vw;
+    text-align: justify;
+    position: absolute;
+    color: white;
+    
+
+}
+.footer {
+    position: absolute;
+    width: 100%;
+    height: 190px;
+    background-color: white;
+    color: black;
+    text-align: center;
+    
+  }
+  .button {
+    border-radius: 4px;
+    background-color: orange;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 13px;
+    padding: 20px;
+    width: 200px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+  }
+  
+  .button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  
+  .button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  
+  .button:hover span {
+    padding-right: 25px;
+  }
+  
+  .button:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+
+.mail {
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 18px;
+    cursor: pointer;
+    color: black
+}
+.pics{
+    position: absolute;
+    max-width: 180px;
+    width: 20%;
+    height: auto;
+    top: 15%;
+    left: 10%;
+
+    border-radius: 50%;
+}
+
+.video-responsive{
+    overflow:hidden;
+    padding-bottom:56.25%;
+    position:relative;
+    height:0;
+    margin: 5%;
+    border: 2px outset white;
+}
+.video-responsive iframe{
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    position:absolute;
+    align-content: center;
+}
+
+.videos {
+    margin: 5%;
+}
+
+.details-example{
+    cursor: pointer;
+    user-select: none
+}
+
+.grow { transition: all .2s ease-in-out; }
+.grow:hover { 
+transform: scale(1.1); 
+color: orange; }
+
+#cardetails{
+  color: #FFFFFF;
+  transition: all .2s ease-in-out;
+}
+#cardetails:hover{
+  transform: scale(1.02);
+color: orange; 
+}
+
+
+.gradbox{
+ 
+  background-color: #4158D0;
+ background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+  width: 330px;
+  height: 170px;
+  border-radius: 20px;
+  transition: 0.5s ease-in-out;
+  
+}
+
+.gradbox:hover{
+  background-color: #4158D0;
+ background-image: linear-gradient(236deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+ transform: scale(1.1);
+  cursor: pointer;
+}
+
+
+.address2{
+  font-size: large;
+  max-width:270px;
+  word-wrap:break-word;
+}
+
+
